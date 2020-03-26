@@ -7,6 +7,15 @@ class UsersController < ApplicationController
         erb :'/users/login'
     end
 
+    get '/users/:id' do 
+        if User.find_by(id: params[:id])
+            @user = User.find_by(id: params[:id])
+        else
+            redirect to 'users/signup'
+        end
+        erb :'users/show'
+    end
+
     post '/signup' do
         user = User.create(params)
         if user.valid?
