@@ -1,18 +1,28 @@
 class PizzasController < ApplicationController
     
     get '/pizzas/new' do 
+        if !Helpers.logged_in?(session)
+            redirect '/'
+        end
         erb :'/pizzas/new'
     end
 
-    get '/pizzas/show' do 
+    get '/pizzas/show' do
+        if !Helpers.logged_in?(session)
+            redirect '/'
+        end
         erb :'/pizzas/show'
     end
 
     get '/pizzas/:id' do 
-        @pizza = Pizza.find_by(id: params[:id])
-        # @user = User.find_by(id: params[:id])
-        if !@pizza
-            redirect to '/pizzas'
+        if !Helpers.logged_in?(session)
+            redirect '/'
+        else
+            @pizza = Pizza.find_by(id: params[:id])
+            # @user = User.find_by(id: params[:id])
+            if !@pizza
+                redirect to '/pizzas'
+            end
         end
         erb :'/pizzas/show'
     end
