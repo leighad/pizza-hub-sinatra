@@ -15,6 +15,11 @@ class UsersController < ApplicationController
         erb :'/users/login'
     end
 
+    get '/users' do 
+        @users = User.all 
+        erb :'/users/index'
+    end
+
     get '/users/:id' do 
         if User.find_by(id: params[:id])
             @user = User.find_by(id: params[:id])
