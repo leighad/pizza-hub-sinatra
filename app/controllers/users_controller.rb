@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     get '/users/:id' do 
         if User.find_by(id: params[:id])
             @user = User.find_by(id: params[:id])
+            @pizzas = @user.pizzas  
         else
             redirect to 'users/signup'
         end

@@ -3,3 +3,7 @@
 <%# <div class="cartoon">
     <img src="images/pizza-cartoon-640x480.jpg" class="img-responsive main-image" height=200px>
 </div> %>
+
+<% @pizzas.each do |pizza| %>
+<p><a href="/pizzas/show<% pizza.id %>"> <%= pizza.pizza_name %> </a></p>
+<% end %>
