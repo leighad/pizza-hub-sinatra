@@ -1,1 +1,7 @@
-<h2>Pizza's Personal Page:</h2>
+<h2><%= @pizza.pizza_name.titleize %>'s Personal Page:</h2><br/>
+
+
+<p><strong>Price: </strong><%= @pizza.price %> </p>
+<p><strong>Came from: </strong><%= @pizza.origin %> </p>
+<p><strong>Description: </strong><%= @pizza.description %> </p>
+<p><strong>Notes: </strong><%= @pizza.notes %> </p>

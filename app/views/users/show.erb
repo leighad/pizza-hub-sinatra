@@ -5,5 +5,5 @@
 </div> %>
 
 <% @pizzas.each do |pizza| %>
-<p><a href="/pizzas/show<% pizza.id %>"> <%= pizza.pizza_name %> </a></p>
+<p><a href="/pizzas/<%= pizza.id %>"> <%= pizza.pizza_name %> </a></p>
 <% end %>
