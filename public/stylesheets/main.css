@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(4, 189, 81);
+    background-color: rgb(34, 224, 113);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -115,10 +115,10 @@
 }
 
 
-/* Add a black background color to the top navigation */
+/* Add a background color to the top navigation */
 .topnav {
   position: relative;
-  background-color: #333;
+  background-color: rgb(238, 5, 5);
   overflow: hidden;
 }
 
