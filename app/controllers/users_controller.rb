@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     end
 
     get '/logout' do 
-        erb :welcome
+        session.clear
+        redirect to '/'
     end
 
     post '/signup' do
