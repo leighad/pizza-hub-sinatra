@@ -29,6 +29,10 @@ class UsersController < ApplicationController
         erb :'users/show'
     end
 
+    get '/logout' do 
+        erb :welcome
+    end
+
     post '/signup' do
         user = User.create(params)
         if user.valid?
