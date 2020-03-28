@@ -24,12 +24,26 @@ class PizzasController < ApplicationController
             redirect '/'
         else
             @pizza = Pizza.find_by(id: params[:id])
-            # @user = User.find_by(id: params[:id])
             if !@pizza
                 redirect to '/pizzas'
+            else
+                @result = params['pizza_description']
             end
         end
         erb :'/pizzas/show'
+    end
+
+    get '/pizzas/:id/edit' do 
+        @pizza = Pizza.find_by(id: params[:id])
+
+        erb :'/pizzas/edit'
+    end
+
+    patch '/pizzas/:id' do 
+        pizza = Pizza.find_by(id: params[:id])
+        pizza.update(params[:pizza])
+
+        redirect to "/pizzas/#{pizza.id}"
     end
 
     post '/pizzas' do 

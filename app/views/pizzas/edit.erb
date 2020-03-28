@@ -1,0 +1,19 @@
+<h2>Edit Your Pizza Here:</h2>
+
+<form action="/pizzas/<%= @pizza.id %>" method="POST">
+    <input type="hidden" name="_method" value="patch">
+
+    <label>Name:</label>
+    <input type="text" name="pizza[pizza_name]" value="<%= @pizza.pizza_name %>"><br/>
+    <label>Price: $</label>
+    <input type="text" name="pizza[price]" value="<%= @pizza.price %>"><br/>
+    <label>Where made:</label>
+    <input type="text" name="pizza[origin]" value="<%= @pizza.origin %>"><br/>
+    <label>Description:</label><br/>
+    <textarea id="pizza_description" name="pizza[description]" value="<%= @result %>"
+        rows="6" cols="60">
+    </textarea><br/>
+    <label>Notes:</label>
+    <input type="text" name="pizza[notes]" value="<%= @pizza.notes %>"><br/>
+    <input type="submit" value="Edit Pizza">
+</form>

@@ -1,7 +1,10 @@
-<h2><%= @pizza.pizza_name.titleize %>'s Personal Page:</h2><br/>
+<h2>All About <%= @pizza.pizza_name.titleize %>:</h2><br/>
 
 
-<p><strong>Price: </strong><%= @pizza.price %> </p>
+<p><strong>Price: </strong>$<%= @pizza.price %> </p>
 <p><strong>Came from: </strong><%= @pizza.origin %> </p>
 <p><strong>Description: </strong><%= @pizza.description %> </p>
 <p><strong>Notes: </strong><%= @pizza.notes %> </p>
+
+<br/>
+<a href="/pizzas/<%= @pizza.id %>/edit">Edit This Pizza!</a>
