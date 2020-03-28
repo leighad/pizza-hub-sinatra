@@ -25,14 +25,14 @@
         </div>
 
         <!-- Left-aligned links (default) -->
-        <a href="/pizzas/new">Make a Pizza</a>
+        <a href="/users">View Users</a>
         <a href="/pizzas">Show Pizzas</a>
         <a href="#">Show Ingredients</a>
 
         <!-- Right-aligned links -->
         <div class="topnav-right">
           <a href="/users/<%= Helpers.current_user(session).id %>">My Pizzas</a>
-          <a href="/users">View Users</a>
+          <a href="/pizzas/new">Make a Pizza</a>
           <a href="/logout" class="logout">Log Out</a>
         </div>
       </div>
