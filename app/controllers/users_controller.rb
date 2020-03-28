@@ -42,7 +42,7 @@ class UsersController < ApplicationController
             redirect to "/users/#{user.id}"
         else
             #add flash error message
-            redirect to 'signup'
+            redirect to '/signup'
         end
     end
 
