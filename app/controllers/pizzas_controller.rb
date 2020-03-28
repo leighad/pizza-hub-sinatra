@@ -1,5 +1,10 @@
 class PizzasController < ApplicationController
     
+    get '/pizzas' do 
+        @pizzas = Pizza.all 
+        erb :'/pizzas/index'
+    end
+    
     get '/pizzas/new' do 
         if !Helpers.logged_in?(session)
             redirect '/'
