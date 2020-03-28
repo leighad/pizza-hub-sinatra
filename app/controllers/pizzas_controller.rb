@@ -60,8 +60,18 @@ class PizzasController < ApplicationController
         pizza.user = user
         pizza.save
 
-        # redirect to "/users/#{user.id}"
         redirect to "/pizzas/#{pizza.id}"
+    end
+
+    delete '/pizzas/:id/delete' do 
+        pizza = Pizza.find_by_id(params[:id])
+        user = Helpers.current_user(session)
+
+        if pizza && pizza.user == Helpers.current_user(session)
+            pizza.destroy
+        end
+
+        redirect to "/users/#{user.id}"
     end
 
 end

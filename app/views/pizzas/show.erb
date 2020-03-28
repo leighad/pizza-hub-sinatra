@@ -9,4 +9,9 @@
 <br/>
 <% if Helpers.current_user(session) == @pizza.user %>
     <a href="/pizzas/<%= @pizza.id %>/edit">Edit This Pizza!</a>
+<br/> &emsp;&emsp;&emsp; <br/>
+    <form action="/pizzas/<%= @pizza.id %>/delete" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Destroy This Pizza!">
+    </form>
 <% end %>
