@@ -7,4 +7,6 @@
 <p><strong>Notes: </strong><%= @pizza.notes %> </p>
 
 <br/>
-<a href="/pizzas/<%= @pizza.id %>/edit">Edit This Pizza!</a>
+<% if Helpers.current_user(session) == @pizza.user %>
+    <a href="/pizzas/<%= @pizza.id %>/edit">Edit This Pizza!</a>
+<% end %>
