@@ -37,7 +37,7 @@ class PizzasController < ApplicationController
 
     get '/pizzas/:id/edit' do 
         @pizza = Pizza.find_by(id: params[:id])
-        if !Helpers.logged_in?(session) || @pizza.user != Helpers.current_user(session)
+        if !@pizza || !Helpers.logged_in?(session) || @pizza.user != Helpers.current_user(session)
             redirect '/'
         end
         erb :'/pizzas/edit'
@@ -46,7 +46,7 @@ class PizzasController < ApplicationController
     patch '/pizzas/:id' do
         pizza = Pizza.find_by(id: params[:id])
 
-        if pizza.user == Helpers.current_user(session)
+        if pizza && pizza.user == Helpers.current_user(session)
             pizza.update(params[:pizza])
             redirect to "/pizzas/#{pizza.id}"
         else
