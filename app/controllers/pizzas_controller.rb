@@ -26,12 +26,14 @@ class PizzasController < ApplicationController
             @pizza = Pizza.find_by(id: params[:id])
             if !@pizza
                 redirect to '/pizzas'
-            else
-                @result = params['pizza_description']
+            # else
+            #     @result = params['pizza_description']
             end
         end
         erb :'/pizzas/show'
     end
+
+    # need data from textarea to display upon edit request
 
     get '/pizzas/:id/edit' do 
         @pizza = Pizza.find_by(id: params[:id])
