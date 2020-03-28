@@ -43,11 +43,15 @@ class PizzasController < ApplicationController
         erb :'/pizzas/edit'
     end
 
-    patch '/pizzas/:id' do 
+    patch '/pizzas/:id' do
         pizza = Pizza.find_by(id: params[:id])
-        pizza.update(params[:pizza])
 
-        redirect to "/pizzas/#{pizza.id}"
+        if pizza.user == Helpers.current_user(session)
+            pizza.update(params[:pizza])
+            redirect to "/pizzas/#{pizza.id}"
+        else
+            redirect to "/pizzas"
+        end 
     end
 
     post '/pizzas' do 
