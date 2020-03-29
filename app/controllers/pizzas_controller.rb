@@ -1,6 +1,7 @@
 class PizzasController < ApplicationController
     
-    get '/pizzas' do 
+    get '/pizzas' do
+        # Helpers.redirect_if_not_logged_in
         @pizzas = Pizza.all 
         erb :'/pizzas/index'
     end
@@ -10,13 +11,6 @@ class PizzasController < ApplicationController
             redirect '/'
         end
         erb :'/pizzas/new'
-    end
-
-    get '/pizzas/show' do
-        if !Helpers.logged_in?(session)
-            redirect '/'
-        end
-        erb :'/pizzas/show'
     end
 
     get '/pizzas/:id' do 
