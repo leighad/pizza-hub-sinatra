@@ -1,0 +1,5 @@
+<h2>The Ingredient Collection:</h2>
+
+<% @ingredients.each do |ingredient| %>
+<p><a href="/ingredients/<%= ingredient.id %>"><%= ingredient.ingredient_name %></a></p>
+<% end %>
