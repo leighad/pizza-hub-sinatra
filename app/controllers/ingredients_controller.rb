@@ -12,13 +12,6 @@ class IngredientsController < ApplicationController
         erb :'/ingredients/new'
     end
 
-    get '/ingredients/show' do
-        if !Helpers.logged_in?(session)
-            redirect '/'
-        end
-        erb :'/ingredients/show'
-    end
-
     get '/ingredients/:id' do 
         if !Helpers.logged_in?(session)
             redirect '/'
