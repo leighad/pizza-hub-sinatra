@@ -1,5 +1,11 @@
 <h2>Edit Your Pizza Here:</h2>
 
+<ul>
+<% @pizza.errors.full_messages.each do |e| %>
+    <li><%= e %></li>
+<% end %>
+</ul>
+
 <form action="/pizzas/<%= @pizza.id %>" method="POST">
     <input type="hidden" name="_method" value="patch">
 
@@ -10,8 +16,9 @@
     <label>Where made:</label>
     <input type="text" name="pizza[origin]" value="<%= @pizza.origin %>"><br/>
     <label>Description:</label><br/>
-    <textarea id="pizza_description" name="pizza[description]" value="<%= @result %>"
+    <textarea id="pizza_description" name="pizza[description]"
         rows="6" cols="60">
+        <%= @pizza.description %>
     </textarea><br/>
     <label>Notes:</label>
     <input type="text" name="pizza[notes]" value="<%= @pizza.notes %>"><br/>

@@ -37,7 +37,7 @@ class IngredientsController < ApplicationController
 
         # if ingredient && ingredient.pizza== Helpers.current_user(session) ??
 
-        if ingredient && ingredient.user == Helpers.current_user(session)
+        if ingredient && ingredient.user == current_user
             ingredient.update(params[:ingredient])
             redirect to "/ingredients/#{ingredient.id}"
         else

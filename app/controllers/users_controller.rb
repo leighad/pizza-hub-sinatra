@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
     get '/signup' do 
-        if Helpers.logged_in?(session)
-            user = Helpers.current_user(session)
-            redirect to "/users/#{user.id}"
+        if logged_in?
+            redirect to "/users/#{current_user.id}"
         end
         erb :'/users/signup'
     end
 
     get '/login' do 
-        if Helpers.logged_in?(session)
-            user = Helpers.current_user(session)
-            redirect to "/users/#{user.id}"
+        if logged_in?
+            redirect to "/users/#{current_user.id}"
         end
         erb :'/users/login'
     end

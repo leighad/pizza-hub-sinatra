@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <% if Helpers.logged_in?(session) %>
+    <% if logged_in? %>
     <div class="wrapper">
       <!-- Top navigation -->
       <div class="topnav">
@@ -31,7 +31,7 @@
 
         <!-- Right-aligned links -->
         <div class="topnav-right">
-          <a href="/users/<%= Helpers.current_user(session).id %>">My Pizzas</a>
+          <a href="/users/<%= current_user.id %>">My Pizzas</a>
           <a href="/pizzas/new">Make a Pizza</a>
           <a href="/logout" class="logout">Log Out</a>
         </div>
