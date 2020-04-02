@@ -14,10 +14,19 @@ class PizzasController < ApplicationController
         erb :'/pizzas/new'
     end
 
+    get '/pizzas/most-recent' do
+        pizza = Pizza.last
+        #step 1: get the pizza
+        #step 2: redirect
+
+        redirect to "/pizzas/#{pizza.id}"
+    end
+
     get '/pizzas/:id' do 
         if !logged_in?
             redirect '/'
         else
+            # binding.pry 
             @pizza = Pizza.find_by(id: params[:id])
             if !@pizza
                 redirect to '/pizzas'
@@ -74,3 +83,6 @@ class PizzasController < ApplicationController
     end
 
 end
+
+#Write a route '/pizzas/most-recent' that shows the user the last pizza made in the database doesn't matter if they're the owner or not
+
